@@ -15,10 +15,13 @@ import com.google.appinventor.components.annotations.*;
 import android.widget.FrameLayout;
 import com.google.appinventor.components.common.ComponentCategory;
 import com.google.appinventor.components.runtime.*;
+import com.google.appinventor.components.runtime.YailList;
 import rx.android.plugins.*;
 import rx.android.schedulers.*;
 import rx.android.*;
 import rx.functions.Action1;
+import java.util.ArrayList;
+import java.util.Arrays;
 @DesignerComponent(
         version = 1,
         description = "Particle Text View",
@@ -35,6 +38,7 @@ public class ParticleTextViewAix extends AndroidNonvisibleComponent {
     private Context context;
     private Activity activity;
     private ParticleTextView particleTextView;
+    private ArrayList arr;
 
     public ParticleTextViewAix(ComponentContainer container){
         super(container.$form());
@@ -43,7 +47,7 @@ public class ParticleTextViewAix extends AndroidNonvisibleComponent {
     }
 
     @SimpleFunction()
-    public void Configure(AndroidViewComponent androidViewComponent, int rowStep, int columnStep, String targetText, double releasing, float particleRadius, double miniDistance, int textSize, String movingStrategy){
+    public void Configure(AndroidViewComponent androidViewComponent, int rowStep, int columnStep, String targetText, double releasing, float particleRadius, double miniDistance, int textSize, String movingStrategy , YailList colors){
 FrameLayout frameLayout = (FrameLayout) androidViewComponent.getView();
 ParticleTextView particleTextView = new ParticleTextView(this.context); 
 RandomMovingStrategy randomMovingStrategy = new RandomMovingStrategy();
@@ -56,7 +60,7 @@ ParticleTextViewConfig config = new ParticleTextViewConfig.Builder()
                 .setMiniDistance(miniDistance)
                 .setTextSize(textSize)
                 .setMovingStrategy(randomMovingStrategy)
-                //.setParticleColorArray(String[] particleColorArray)
+                .setParticleColorArray(colors.toStringArray())
                 .instance();
 particleTextView.setConfig(config);
 frameLayout.addView(particleTextView, new FrameLayout.LayoutParams(-1, -1));
@@ -80,4 +84,23 @@ public void StopAnimation() {
     public void AnimationStopped(){
         EventDispatcher.dispatchEvent(this, "Animation Stopped");
     }
+    /*
+    @SimpleFunction
+    public void Colors(YailList yailList){
+        //Now i would convert yailList to arrayList , first let me convert it to string array
+        String[] stringArray = yailList.toStringArray();
+        //Now i would convert it into arrayList so ;
+
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for(int i = 0 ; i<stringArray.length ; i++){
+            arrayList.add(stringArray[i]);
+        }
+
+        this.arr = arrayList;
+        //Now do whatever with arraylist 
+
+    }
+    * ArrayList and Arrays are two different things , okay anshu :) :)
+    */
+    
 }
