@@ -84,7 +84,7 @@ public void StopAnimation() {
     public void AnimationStopped(){
         EventDispatcher.dispatchEvent(this, "Animation Stopped");
     }
-    /*
+    
     @SimpleFunction
     public void Colors(YailList yailList){
         //Now i would convert yailList to arrayList , first let me convert it to string array
@@ -100,7 +100,6 @@ public void StopAnimation() {
         //Now do whatever with arraylist 
 
     }
-    * ArrayList and Arrays are two different things , okay anshu :) :)
-    */
+   
     
 }
