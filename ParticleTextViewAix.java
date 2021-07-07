@@ -85,21 +85,21 @@ public void StopAnimation() {
         EventDispatcher.dispatchEvent(this, "Animation Stopped");
     }
     
-    @SimpleFunction
-    public void Colors(YailList yailList){
+  //  @SimpleFunction
+  //  public void Colors(YailList yailList){
         //Now i would convert yailList to arrayList , first let me convert it to string array
-        String[] stringArray = yailList.toStringArray();
+  //      String[] stringArray = yailList.toStringArray();
         //Now i would convert it into arrayList so ;
 
-        ArrayList<String> arrayList = new ArrayList<String>();
-        for(int i = 0 ; i<stringArray.length ; i++){
-            arrayList.add(stringArray[i]);
-        }
+  //      ArrayList<String> arrayList = new ArrayList<String>();
+   //     for(int i = 0 ; i<stringArray.length ; i++){
+   //         arrayList.add(stringArray[i]);
+   //     }
 
-        this.arr = arrayList;
-        //Now do whatever with arraylist 
+  //      this.arr = arrayList;
+   //     //Now do whatever with arraylist 
 
-    }
+  //  }
    
     
 }
