@@ -15,7 +15,7 @@ import com.google.appinventor.components.annotations.*;
 import android.widget.FrameLayout;
 import com.google.appinventor.components.common.ComponentCategory;
 import com.google.appinventor.components.runtime.*;
-import com.google.appinventor.components.runtime.YailList;
+import com.google.appinventor.components.runtime.util.YailList;
 import rx.android.plugins.*;
 import rx.android.schedulers.*;
 import rx.android.*;
